@@ -32,7 +32,7 @@ jobs:
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
-      - name: Test code
+      - name: Test codex
         id: run-tests
         run: npm run test
       - name: Upload test report
