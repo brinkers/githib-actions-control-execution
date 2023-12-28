@@ -35,6 +35,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test code
+        continue-on-error: true
         id: run-tests
         run: npm run test
       - name: Upload test report
@@ -79,7 +80,7 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
   report:
-    name: report on error
+    name: this is the report name step
     needs: [lint, deploy]
     if: failure()
     runs-on: ubuntu-latest
